@@ -1,107 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manga Vault | 18+ Reader Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { background: linear-gradient(135deg, #0f0f23 0%, #1a0d2e 100%); color: #f8fafc; font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px); border: 1px solid rgba(148, 163, 184, 0.2); }
-        .manga-card:hover { transform: scale(1.05); border-color: #ec4899; box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3); }
-        #age-gate { background: rgba(0, 0, 0, 0.95); }
-        .gradient-text { background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hi0 Anime Vault | 18+ Manga Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body { background: linear-gradient(135deg, #0f0f23 0%, #1a0d2e 100%); color: #f8fafc; }
+    .glass { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(18px); border: 1px solid rgba(148, 163, 184, 0.18); }
+    .manga-card { transition: all 0.25s ease; cursor: pointer; }
+    .manga-card:hover { transform: scale(1.04); border-color: rgba(236,72,153,.6); box-shadow: 0 20px 40px rgba(236, 72, 153, 0.35); }
+    .gradient-text { background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    #age-gate { background: rgba(0,0,0,.95); }
+  </style>
 </head>
+
 <body class="min-h-screen p-4 md:p-8">
 
-    <!-- AGE GATE -->
-    <div id="age-gate" class="fixed inset-0 z-50 flex items-center justify-center p-6">
-        <div class="max-w-sm w-full glass p-8 rounded-3xl text-center shadow-2xl border-pink-500/30">
-            <i class="fas fa-shield-alt text-5xl text-pink-500 mb-4"></i>
-            <h1 class="text-3xl font-black mb-4 gradient-text">18+ Only</h1>
-            <p class="text-gray-400 mb-8 leading-relaxed">Adult manga & hentai readers. Confirm age to enter.</p>
-            <button onclick="acceptAge()" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-400 hover:to-purple-500 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg uppercase text-sm w-full">
-                Enter Site
-            </button>
-            <a href="https://google.com" class="text-gray-500 hover:text-white text-xs mt-4 block">Under 18? Exit</a>
-        </div>
+  <!-- AGE GATE -->
+  <div id="age-gate" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+    <div class="max-w-sm w-full glass p-8 rounded-3xl text-center">
+      <i class="fas fa-exclamation-triangle text-5xl text-red-500 mb-4"></i>
+      <h1 class="text-3xl font-black mb-3 text-white">18+ ONLY</h1>
+      <p class="text-gray-400 mb-8">Adult content. Confirm you are 18+ to enter.</p>
+      <button onclick="enterSite()"
+        class="bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-4 px-8 rounded-2xl w-full uppercase shadow-lg hover:shadow-pink-500/40 transition">
+        I am 18+ Enter
+      </button>
+      <a href="https://google.com" class="text-gray-500 text-xs mt-4 block">Exit</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main-content" class="hidden max-w-5xl mx-auto">
+
+    <!-- Header -->
+    <header class="text-center py-10">
+      <h1 class="text-5xl md:text-7xl font-black gradient-text mb-3">HI0 ANIME</h1>
+      <p class="text-gray-400 uppercase tracking-widest text-sm">Daily Manga Readers • Links Hub</p>
+    </header>
+
+    <!-- Primary buttons -->
+    <div class="grid md:grid-cols-2 gap-6 mb-10 max-w-2xl mx-auto">
+      <a href="https://t.me/hi0anime" target="_blank"
+         class="glass p-6 rounded-3xl hover:bg-blue-500/10 transition group text-center">
+        <i class="fab fa-telegram text-5xl text-blue-400 mb-4 block group-hover:scale-110 transition"></i>
+        <h3 class="text-xl font-bold">Join Telegram</h3>
+        <p class="text-gray-500 text-sm mt-2">@hi0anime</p>
+      </a>
+
+      <!-- Patreon placeholder -->
+      <div class="glass p-6 rounded-3xl hover:bg-orange-500/10 transition cursor-pointer text-center"
+           onclick="alert('VIP/Patreon link coming soon')">
+        <i class="fas fa-crown text-5xl text-orange-500 mb-4 block"></i>
+        <h3 class="text-xl font-bold">VIP Access</h3>
+        <p class="text-gray-500 text-sm mt-2">Coming Soon</p>
+      </div>
     </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main-content" class="hidden max-w-4xl mx-auto">
-
-        <!-- Header -->
-        <header class="text-center py-12">
-            <h1 class="text-5xl md:text-6xl font-black mb-4 gradient-text uppercase tracking-tight">Manga Vault</h1>
-            <p class="text-xl text-gray-400 font-medium uppercase tracking-wider">Page-by-Page Readers | Daily Drops</p>
-        </header>
-
-        <!-- Quick Links -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <a href="https://t.me/hi0anime" target="_blank" class="glass p-6 rounded-3xl hover:bg-blue-500/10 transition group">
-                <i class="fab fa-telegram text-4xl text-blue-400 mb-4 block"></i>
-                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400">Join Telegram</h3>
-                <p class="text-gray-400 text-sm">Free daily links</p>
-            </a>
-            <a href="https://patreon.com/YOUR_PATREON" target="_blank" class="glass p-6 rounded-3xl hover:bg-orange-500/10 transition group">
-                <i class="fab fa-patreon text-4xl text-orange-500 mb-4 block"></i>
-                <h3 class="text-xl font-bold mb-2 group-hover:text-orange-400">VIP Patreon</h3>
-                <p class="text-gray-400 text-sm">Uncensored HD</p>
-            </a>
-        </div>
-
-        <!-- Adsterra Unlock Banner -->
-        <div class="text-center mb-12">
-            <div onclick="window.open('https://YOUR_ADSTERRA_DIRECT_LINK')" class="glass p-6 rounded-3xl cursor-pointer hover:bg-indigo-500/20 transition mx-auto max-w-md inline-block">
-                <i class="fas fa-unlock text-3xl text-yellow-400 mb-3"></i>
-                <h3 class="text-xl font-bold mb-1 text-indigo-300">Unlock All Galleries</h3>
-                <p class="text-gray-400 text-sm">Support & Get Premium Access</p>
-            </div>
-        </div>
-
-        <!-- Manga Grid -->
-        <section>
-            <h2 class="text-2xl font-black mb-8 flex items-center gap-3 gradient-text">
-                <i class="fas fa-fire"></i> Latest Readers
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div onclick="window.open('https://shrinkme.io/YOUR_SHRINKME_LINK_1')" class="manga-card glass rounded-3xl overflow-hidden cursor-pointer p-6 hover:shadow-2xl transition-all">
-                    <div class="h-48 bg-gradient-to-br from-gray-900 to-black rounded-2xl mb-4 overflow-hidden">
-                        <img src="https://via.placeholder.com/300x450/4a5568/ffffff?text=COVER+1" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 line-clamp-1">Test Manga #1 - Ch. 42</h3>
-                    <p class="text-xs text-pink-400 mb-3 uppercase font-semibold">MILF | Full Color</p>
-                    <p class="text-gray-400 text-sm">Tap for page 1 reader</p>
-                </div>
-                <!-- Card 2 - Duplicate for more -->
-                <div onclick="window.open('https://shrinkme.io/YOUR_SHRINKME_LINK_2')" class="manga-card glass rounded-3xl overflow-hidden cursor-pointer p-6 hover:shadow-2xl transition-all">
-                    <div class="h-48 bg-gradient-to-br from-gray-900 to-black rounded-2xl mb-4 overflow-hidden">
-                        <img src="https://via.placeholder.com/300x450/667eea/ffffff?text=COVER+2" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 line-clamp-1">Fantasy Doujin #22</h3>
-                    <p class="text-xs text-pink-400 mb-3 uppercase font-semibold">Elf | Magic</p>
-                    <p class="text-gray-400 text-sm">Tap for page 1 reader</p>
-                </div>
-                <!-- Add more cards by copying above block -->
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="mt-20 pt-12 border-t border-gray-800 text-center text-xs text-gray-500">
-            <p>Directory of 3rd-party links. No files hosted. DMCA: contact@proton.me</p>
-        </footer>
+    <!-- Adsterra unlock banner (NOW WORKING) -->
+    <div class="mb-12 text-center">
+      <div class="glass p-6 rounded-3xl max-w-md mx-auto hover:bg-purple-500/10 transition cursor-pointer"
+           onclick="window.open('https://www.effectivegatecpm.com/y8szstkz?key=9952683873ccc1746eb3ec9f3161a5d0')">
+        <p class="text-lg font-bold text-purple-300">🔥 Unlock / Support (Ads)</p>
+        <p class="text-xs text-gray-500 mt-1">Opens sponsor page • helps keep updates daily</p>
+      </div>
     </div>
 
-    <script>
-        function acceptAge() {
-            document.getElementById('age-gate').style.display = 'none';
-            document.getElementById('main-content').classList.remove('hidden');
-            sessionStorage.setItem('age_verified', 'true');
-        }
-        if (sessionStorage.getItem('age_verified') === 'true') acceptAge();
-    </script>
+    <!-- Manga grid -->
+    <section>
+      <h2 class="text-2xl md:text-3xl font-black mb-8 gradient-text flex items-center gap-3">
+        <i class="fas fa-fire-alt"></i> Latest Readers
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Card 1 (direct reader for now) -->
+        <div class="manga-card glass rounded-3xl p-6"
+             onclick="window.open('https://nhentai.net/g/456789/')">
+          <div class="h-64 bg-gray-900 rounded-2xl mb-4 overflow-hidden">
+            <img src="https://via.placeholder.com/600x900/111827/ffffff?text=ADD+COVER+1"
+                 class="w-full h-full object-cover" alt="Cover 1">
+          </div>
+          <h3 class="font-bold text-lg mb-1">Manga Drop #1</h3>
+          <p class="text-gray-400 text-sm">Tap to read (page-by-page)</p>
+          <p class="text-xs text-pink-400 mt-3 uppercase font-semibold">Replace with Shrinkme later</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="manga-card glass rounded-3xl p-6"
+             onclick="window.open('https://nhentai.net/g/123456/')">
+          <div class="h-64 bg-gray-900 rounded-2xl mb-4 overflow-hidden">
+            <img src="https://via.placeholder.com/600x900/1f2937/ffffff?text=ADD+COVER+2"
+                 class="w-full h-full object-cover" alt="Cover 2">
+          </div>
+          <h3 class="font-bold text-lg mb-1">Manga Drop #2</h3>
+          <p class="text-gray-400 text-sm">Tap to read (page-by-page)</p>
+          <p class="text-xs text-pink-400 mt-3 uppercase font-semibold">Replace with Shrinkme later</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="manga-card glass rounded-3xl p-6"
+             onclick="window.open('https://nhentai.net/g/987654/')">
+          <div class="h-64 bg-gray-900 rounded-2xl mb-4 overflow-hidden">
+            <img src="https://via.placeholder.com/600x900/0b1220/ffffff?text=ADD+COVER+3"
+                 class="w-full h-full object-cover" alt="Cover 3">
+          </div>
+          <h3 class="font-bold text-lg mb-1">Manga Drop #3</h3>
+          <p class="text-gray-400 text-sm">Tap to read (page-by-page)</p>
+          <p class="text-xs text-pink-400 mt-3 uppercase font-semibold">Replace with Shrinkme later</p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="mt-20 pt-10 border-t border-gray-800 text-center">
+      <p class="text-gray-500 text-xs">Directory of third‑party links • Contact: @hi0anime</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById('age-gate').style.display = 'none';
+      document.getElementById('main-content').classList.remove('hidden');
+      sessionStorage.setItem('over18', 'yes');
+    }
+    if (sessionStorage.getItem('over18') === 'yes') enterSite();
+  </script>
 </body>
 </html>
