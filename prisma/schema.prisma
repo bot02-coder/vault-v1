@@ -11,4 +11,8 @@ model Manga {
   id          String   @id @default(cuid())
   name        String
   description String
-  tags       
+  tags        String[]
+  coverUrl    String
+  destUrl     String
+  createdAt   DateTime @default(now())
+}
